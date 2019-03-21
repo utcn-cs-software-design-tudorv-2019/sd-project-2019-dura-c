@@ -1,3 +1,4 @@
+
 FlashScore
 
 Design and implements an client-server application for fallowing the sports results.The application will have 2 types of users:user and admin
