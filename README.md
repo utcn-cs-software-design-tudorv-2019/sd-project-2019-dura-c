@@ -13,6 +13,9 @@ The user can perform the next actions:
  
  The admin can perform the next actions:
  -CRUD categories
+ 
  -CRUD matches
+ 
  -Send email with the final result
+ 
  -Raport of all the matches from that day
