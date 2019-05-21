@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" lang="en"
+      layout:decorator="layouts/main">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+
+<div layout:fragment="RegistrationContent">
+
+    <form name="login" th:action="@{/reg}" method="post" class="form-signin">
+        <h2 class="form-signin-heading">Create account</h2>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="true" />
+        <br/>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="true" />
+        <br/>
+        <label for="age">Age     </label>
+        <input type="text" id="age" name="age" class="form-control" placeholder="Age" required="true" />
+        <br/>
+        <label for="email">Email   </label>
+        <input type="text" id="email" name="email" class="form-control" placeholder="Email" required="true" />
+        <br/>
+        <label for="sold">Sold   </label>
+        <input type="text" id="sold" name="sold" class="form-control" placeholder="Sold" required="true" />
+        <br/>
+        <input type="submit" value="Create account" />
+    </form>
+</div>
+
+</body>
+</html>

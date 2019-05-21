@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" lang="en"
+      layout:decorator="layouts/main">
+<head>
+    <title>Admin</title>
+</head>
+<body>
+
+<div layout:fragment="AdminContent">
+
+    <a th:href="@{/matchList}">View all matches</a>
+    <br/>
+    <a th:href="@{/clientList}">View all clients</a>
+    <br/>
+    <a th:href="@{/betsList}">View all bets</a>
+</div>
+
+</body>
+</html>

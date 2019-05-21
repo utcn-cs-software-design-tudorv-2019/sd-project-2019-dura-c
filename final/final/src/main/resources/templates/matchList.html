@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:th1="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Teachers</title>
+</head>
+
+<body>
+<table  border="1">
+    <tr>
+        <th>Id</th>
+        <th>Category</th>
+        <th>First Team</th>
+        <th>Second Team</th>
+        <th>Score</th>
+    </tr>
+    <tr th:each="game : ${ games }">
+        <td th:text="${game.idamatch}"></td>
+        <td th:text="${ game.category }"></td>
+        <td th:text="${ game.firstTeam }"></td>
+        <td th:text="${ game.secondTeam }"></td>
+        <td th:text="${ game.score }"></td>
+    </tr>
+</table>
+
+<form name="matchOperations" th:action="@{/matchList.html}" method="post" class="form-signin">
+    <label for="id" class="sr-only">Id match to be deleted</label>
+    <input type="text" id="id" name="id" class="form-control" placeholder="Id match to be deleted"  />
+    <br/>
+    <label for="category" class="sr-only">Category</label>
+    <input type="text" id="category" name="category" class="form-control" placeholder="category"  />
+    <br/>
+    <label for="firstTeam" class="sr-only">First Team</label>
+    <input type="text" id="firstTeam" name="firstTeam" class="form-control" placeholder="First Team"  />
+    <br/>
+    <label for="secondeTeam" class="sr-only">Second Team</label>
+    <input type="text" id="secondeTeam" name="secondTeam" class="form-control" placeholder="Second Team"  />
+    <br/>
+    <input type="submit" class="button" name="add match" value="Add match" />
+    <input type="submit" class="button" name="delete match" value="Delete match"/>
+    <input type="submit" class="button" name="update match" value="Update match"/>
+</form>
+
+</body>
+</html>
