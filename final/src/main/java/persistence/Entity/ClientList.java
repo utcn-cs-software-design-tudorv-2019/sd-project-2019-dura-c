@@ -1,5 +1,4 @@
-package persistence.Entity;
-
+package flashscore.persistence.Entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -7,6 +6,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="clientlist")
 public class ClientList {
     @Id
+    @Column(name = "idclientlist", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -16,15 +16,15 @@ public class ClientList {
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name="match")
+    @JoinColumn(name="game")
     @NotNull
-    private Match match;
+    private Game game;
 
     public ClientList(){};
 
-    public ClientList(@NotNull Client client, @NotNull Match match) {
+    public ClientList(@NotNull Client client, @NotNull Game game) {
         this.client = client;
-        this.match = match;
+        this.game = game;
     }
 
     public Integer getId() {
@@ -43,12 +43,12 @@ public class ClientList {
         this.client = client;
     }
 
-    public Match getMatch() {
-        return match;
+    public Game getMatch() {
+        return game;
     }
 
-    public void setMatch(Match match) {
-        this.match = match;
+    public void setMatch(Game game) {
+        this.game = game;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ClientList {
         return "ClientList{" +
                 "id=" + id +
                 ", client=" + client +
-                ", match=" + match +
+                ", match=" + game +
                 '}';
     }
 }

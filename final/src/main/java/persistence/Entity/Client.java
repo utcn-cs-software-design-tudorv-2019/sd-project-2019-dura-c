@@ -1,5 +1,4 @@
-package persistence.Entity;
-
+package flashscore.persistence.Entity;
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,32 +6,33 @@ import java.util.List;
 @Table(name="client")
 public class Client {
     @Id
+    @Column(name = "idclient", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idclient;
 
-    @Column
+    @Column(name="username")
     private String username;
 
-    @Column
+    @Column(name="password")
     private String password;
 
-    @Column
+    @Column(name="age")
     private String age;
 
-    @Column
+    @Column(name="email")
     private String email;
 
-    @OneToMany(fetch=FetchType.EAGER)
-    private List<ClientList> matches;
+    @Column(name="sold")
+    private String sold;
 
     public Client(){};
 
-    public Client(String username, String password, String age, String email, List<ClientList> matches) {
+    public Client(String username, String password, String age, String email,String sold) {
         this.username = username;
         this.password = password;
         this.age = age;
         this.email = email;
-        this.matches = matches;
+        this.sold=sold;
     }
 
     public Integer getIdclient() {
@@ -75,6 +75,14 @@ public class Client {
         this.email = email;
     }
 
+    public String getSold() {
+        return sold;
+    }
+
+    public void setSold(String sold) {
+        this.sold = sold;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -83,6 +91,7 @@ public class Client {
                 ", password='" + password + '\'' +
                 ", age='" + age + '\'' +
                 ", email='" + email + '\'' +
+                ", sold=" + sold +
                 '}';
     }
 }

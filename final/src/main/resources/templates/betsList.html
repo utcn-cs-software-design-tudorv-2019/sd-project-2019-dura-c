@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:th1="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Matches with Bet</title>
+</head>
+
+<body>
+<table  border="1">
+    <tr>
+        <th>IdBet</th>
+        <th>Username</th>
+        <th>First Team</th>
+        <th>Second Team</th>
+        <th>Amount</th>
+        <th>Winner</th>
+    </tr>
+    <tr th:each="bet : ${ bets }">
+        <td th:text="${bet.idBet}"></td>
+        <td th:text="${ bet.getIdc().username }"></td>
+        <td th:text="${ bet.getIdGame().firstTeam }"></td>
+        <td th:text="${ bet.getIdGame().secondTeam }"></td>
+        <td th:text="${ bet.value }"></td>
+        <td th:text="${ bet.winner }"></td>
+    </tr>
+</table>
+
+</body>
+</html>

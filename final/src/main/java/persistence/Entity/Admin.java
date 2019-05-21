@@ -1,21 +1,21 @@
-package persistence.Entity;
-
+package flashscore.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
 @Table(name="admin")
 public class Admin {
     @Id
+    @Column(name = "idadmin", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idadmin;
 
-    @Column
+    @Column(name="username")
     private String username;
 
-    @Column
+    @Column(name="password")
     private String password;
 
-    @Column
+    @Column(name="email")
     private String email;
 
     public Admin(){};
