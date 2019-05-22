@@ -9,20 +9,18 @@
 <table  border="1">
     <tr>
         <th>IdBet</th>
-        <th>Username</th>
         <th>First Team</th>
         <th>Second Team</th>
         <th>Amount</th>
         <th>Supossed Winner</th>
         <th>Actual Winner</th>
     </tr>
-    <tr th:each="bet : ${ bets }">
-        <td th:text="${bet.idBet}"></td>
-        <td th:text="${ bet.getIdc().username }"></td>
+    <tr th:each="bet : ${ gamesBet }">
+        <td th:text="${bet.getIdBet()}"></td>
         <td th:text="${ bet.getIdGame().firstTeam }"></td>
         <td th:text="${ bet.getIdGame().secondTeam }"></td>
         <td th:text="${ bet.value }"></td>
-        <td th:text="${ bet.winner }"></td>
+        <td th:text="${ bet.winner}"></td>
         <td th:text="${bet.getIdGame().score}"></td>
     </tr>
 </table>

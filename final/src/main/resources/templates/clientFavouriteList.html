@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:th1="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Favourite Matches</title>
+</head>
+
+<body>
+<table  border="1">
+    <tr>
+        <th>Id</th>
+        <th>Category</th>
+        <th>First Team</th>
+        <th>Second Team</th>
+        <th>Score</th>
+    </tr>
+    <tr th:each="game : ${ favouriteGames }">
+        <td th:text="${game.idamatch}"></td>
+        <td th:text="${ game.category }"></td>
+        <td th:text="${ game.firstTeam }"></td>
+        <td th:text="${ game.secondTeam }"></td>
+        <td th:text="${ game.score }"></td>
+    </tr>
+</table>
+
+<form name="matchOperations" th:action="@{/clientFavouriteList.html}" method="post" class="form-signin">
+    <label for="id" class="sr-only">Id match</label>
+    <input type="text" id="id" name="id" class="form-control" placeholder="Id match to be deleted"  />
+    <input type="submit" class="button" name="delete match from list" value="Delete from favourite list"/>
+</form>
+
+</body>
+</html>
