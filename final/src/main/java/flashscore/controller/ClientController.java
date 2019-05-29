@@ -2,14 +2,14 @@ package flashscore.controller;
 
 import flashscore.Form.BetForm;
 import flashscore.Form.IdForm;
-import flashscore.business.BetService;
-import flashscore.business.ClientListService;
-import flashscore.business.ClientService;
-import flashscore.business.GameService;
-import flashscore.persistence.Entity.Bet;
-import flashscore.persistence.Entity.Client;
-import flashscore.persistence.Entity.ClientList;
-import flashscore.persistence.Entity.Game;
+import flashscore.Model.business.BetService;
+import flashscore.Model.business.ClientListService;
+import flashscore.Model.business.ClientService;
+import flashscore.Model.business.GameService;
+import flashscore.Model.Entity.Bet;
+import flashscore.Model.Entity.Client;
+import flashscore.Model.Entity.ClientList;
+import flashscore.Model.Entity.Game;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,7 +30,8 @@ public class ClientController {
     ClientListService clientListService;
     @Inject
     BetService betService;
-    @RequestMapping(value="/clientMatchList",method= RequestMethod.GET)
+
+    @RequestMapping(value="/clientMatchList",method=RequestMethod.GET)
     public String viewAllAvailableMatches(Model model){
         model.addAttribute("games",gameService.findAllGames());
         return "clientMatchList";

@@ -1,20 +1,16 @@
 package flashscore.controller;
 
 import flashscore.Form.IdForm;
-import flashscore.Form.LoginForm;
-import flashscore.business.*;
-import flashscore.persistence.Entity.Client;
-import flashscore.persistence.Entity.Game;
+import flashscore.Model.business.*;
+import flashscore.Model.Entity.Game;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Controller
 public class AdminController {
@@ -49,6 +45,9 @@ public class AdminController {
     @RequestMapping(params="update match",method =RequestMethod.POST)
     public String UpdateMatch(@ModelAttribute(name="IdForm") IdForm idForm,@ModelAttribute(name="Game") Game game, Model model){
         Game insert=gameService.findGame(Integer.parseInt(idForm.getId()));
+        betService.deleteBetsByGame(gameService.findGame(Integer.parseInt(idForm.getId())));
+        clientListService.deleteAllByGame(gameService.findGame(Integer.parseInt(idForm.getId())));
+        System.out.println(insert.toString());
         gameService.deleteGame(Integer.parseInt(idForm.getId()));
         game.setIdamatch(Integer.parseInt(idForm.getId()));
         if(game.getSecondTeam().equals("")){
